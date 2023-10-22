@@ -7,16 +7,15 @@ def average(array):
     return s/len(array)
 
 def calcPirson(x, y):
-    numerator = 0
     denominatorX = 0
     denominatorY = 0
     avX = average(x)
     avY = average(y)
-    for i in range(len(x)):
-        numerator += (x[i] - avX) * (y[i] - avY)
-        denominatorX += (x[i] - avX) ** 2
-        denominatorY += (y[i] - avY) ** 2
-    return numerator / ((denominatorX ** 0.5) * (denominatorY ** 0.5))
+    numerator = lambda xi,yi: (xi - avX) * (yi - avY)
+    denominatorX = lambda xi: (xi - avX) ** 2
+    denominatorY = lambda yi: (yi - avY) ** 2
+    return sum(list(map(numerator, x, y))) / ((sum(list(map(denominatorX, x))) ** 0.5) * (sum(list(map(denominatorY, y))) ** 0.5))
+
 
 x = []
 y = []
