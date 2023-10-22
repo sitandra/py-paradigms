@@ -1,12 +1,9 @@
 import random
 
-def average(array):
-    s = 0
-    for i in array:
-        s+=i
-    return s/len(array)
+def average(array: list):
+    return sum(array)/len(array)
 
-def calcPirson(x, y):
+def calcPirson(x: list, y: list) -> float:
     denominatorX = 0
     denominatorY = 0
     avX = average(x)
